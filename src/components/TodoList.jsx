@@ -12,7 +12,7 @@ const TodoList = ({HOST_API, Store}) => {
 
     //Hace una petición a la api para traer todos los items de la lista existentes en la base de datos
     useEffect(() => {
-        fetch(HOST_API + "/todolist/todo")
+        fetch(HOST_API + "/todos")
             .then(response => response.json())
             .then((list) => {
                 dispatch({ type: "update-list", list })
@@ -21,7 +21,7 @@ const TodoList = ({HOST_API, Store}) => {
 
     //Se conecta a la api para eliminar un item por medio de su id
     const onDelete = (id) => {
-        fetch(HOST_API + "/todolist/" + id + "/todo", {
+        fetch(HOST_API + "/" + id + "/todo", {
             method: "DELETE"
         }).then(() => {
             dispatch({ type: "delete-item", id })
@@ -39,7 +39,7 @@ const TodoList = ({HOST_API, Store}) => {
             id: todo.id,
             completed: event.target.checked
         };
-        fetch(HOST_API + "/todolist/todo", {
+        fetch(HOST_API + "/todo", {
             method: "PUT",
             body: JSON.stringify(request),
             headers: {

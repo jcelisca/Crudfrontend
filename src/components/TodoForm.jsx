@@ -24,7 +24,7 @@ const TodoForm = ({HOST_API, Store}) => {
         };
 
         //petición a la api para agregar un item
-        fetch(HOST_API + "/todolist/todo", {
+        fetch(HOST_API + "/todo", {
             method: "POST",
             body: JSON.stringify(request),
             headers: {
@@ -51,7 +51,7 @@ const TodoForm = ({HOST_API, Store}) => {
         };
 
         //petición a la api para actualizar un item
-        fetch(HOST_API + "/todolist/todo", {
+        fetch(HOST_API + "/todo", {
             method: "PUT",
             body: JSON.stringify(request),
             headers: {
